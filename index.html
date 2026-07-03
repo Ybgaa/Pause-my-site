@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pause My Site</title>
+<style>
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+
+.gallery-img{
+    width:100%;
+    height:230px;          /* All images same height */
+    object-fit:cover;      /* Crop instead of stretching */
+    border-radius:15px;
+    cursor:pointer;
+    transition:.35s;
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+
+.gallery-img:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 45px rgba(0,0,0,.15);
+}
+#imageViewer{
+    position:fixed;
+    inset:0;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.92);
+    backdrop-filter:blur(8px);
+    z-index:99999;
+}
+
+#viewerImage{
+    max-width:92vw;
+    max-height:92vh;
+    object-fit:contain;
+    border-radius:18px;
+    animation:zoom .25s ease;
+}
+
+@keyframes zoom{
+    from{
+        transform:scale(.85);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+#closeViewer{
+    position:absolute;
+    top:25px;
+    right:35px;
+    font-size:55px;
+    color:white;
+    cursor:pointer;
+}
+
+#viewerImage{
+    max-width:90%;
+    max-height:90%;
+    border-radius:15px;
+}
+
+#closeViewer{
+    position:absolute;
+    top:20px;
+    right:35px;
+    color:white;
+    font-size:45px;
+    cursor:pointer;
+    user-select:none;
+}
+body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:#fff;color:#222;line-height:1.6}
+header{padding:80px 8%;display:flex;align-items:center;justify-content:space-between;gap:40px}
+.hero img.logo{width:120px}
+.btn{display:inline-block;padding:14px 28px;border-radius:10px;background:#111;color:#fff;text-decoration:none}
+.btn2{background:#25D366}
+section{padding:70px 8%}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px}
+.card{border:1px solid #eee;border-radius:16px;padding:20px;box-shadow:0 8px 20px rgba(0,0,0,.05)}
+img.preview{width:100%;border-radius:12px}
+footer{padding:40px 8%;background:#f8f8f8;text-align:center}
+h1,h2{color:#111}
+.fade{opacity:0;transform:translateY(30px);transition:.8s}
+.fade.show{opacity:1;transform:none}
+.stat{font-size:40px;font-weight:bold}
+</style>
+</head>
+<body>
+<header class="hero fade">
+<div>
+<img src="logo.png" class="logo">
+<h1>Pause My Site</h1>
+<p>A clean and professional WordPress maintenance mode plugin designed to temporarily pause public access while you work behind the scenes. Customize your maintenance page, control visibility, and manage your website with confidence.</p>
+<p><a class="btn" href="">Get it Now</a> <a class="btn btn2" href="https://wa.me/201214964130">Need a Custom Plugin?</a></p>
+</div>
+<div><img src="hero-dashboard.png" class="preview"></div>
+</header>
+<section class="gallery-section">
+    <h2>Showcase Your Brand</h2>
+
+    <p>
+        Pause My Site gives you complete freedom to personalize your maintenance page.
+        Display your company logo, product artwork, promotional banner, or even an
+        animated GIF to give visitors a more engaging experience while your website is
+        temporarily unavailable.
+    </p>
+
+    <p>
+        <strong>You can use:</strong> PNG • JPG • SVG • WEBP • Animated GIFs
+    </p>
+
+    <div class="gallery">
+        <img src="hero-dashboard.png" class="gallery-img">
+        <img src="maintenance-preview.png" class="gallery-img">
+        <img src="settings-panel.png" class="gallery-img">
+        <img src="mobile-preview.png" class="gallery-img">
+        <img src="templates-gallery.png" class="gallery-img">
+        <img src="features-preview.png" class="gallery-img">
+    </div>
+</section>
+
+<div id="imageViewer">
+    <span id="closeViewer">&times;</span>
+    <img id="viewerImage">
+</div>
+
+<section class="fade">
+<h2>Built for Simplicity</h2>
+<div class="grid">
+<div class="card"><h3>One Click Enable</h3><p>Turn maintenance mode on or off instantly from the dashboard.</p></div>
+<div class="card"><h3>Fully Customizable</h3><p>Edit titles, descriptions, colors, backgrounds and more.</p></div>
+<div class="card"><h3>Administrator Access</h3><p>Visitors see maintenance mode while administrators continue working.</p></div>
+</div>
+</section>
+
+
+
+<section class="fade">
+<h2>Feature Highlights</h2>
+<div class="grid">
+<div class="card"><div class="stat" data-target="25">0</div><p>Configuration options.</p></div>
+<div class="card"><div class="stat" data-target="100">0</div><p>Responsive experience.</p></div>
+<div class="card"><div class="stat" data-target="10">0</div><p>Ready-to-use templates.</p></div>
+</div>
+</section>
+
+<section class="fade">
+<h2>Frequently Asked Questions</h2>
+<h3>Does it affect my content?</h3><p>No. Your content remains untouched.</p>
+<h3>Can administrators still access the dashboard?</h3><p>Yes.</p>
+<h3>Can I customize the maintenance page?</h3><p>Absolutely.</p>
+</section>
+
+<section class="fade">
+<h2>Need a Custom Plugin?</h2>
+<p>If your business needs a custom WordPress solution, we'd be happy to help.</p>
+<p><a class="btn btn2" href="https://wa.me/201214964130">Contact us via WhatsApp</a></p>
+</section>
+
+<footer>
+<img src="m2mlogo.png" style="width:70px"><br>
+<strong>Made by M2M Software Studio</strong>
+</footer>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}));
+document.querySelectorAll('.fade').forEach(x=>io.observe(x));
+document.querySelectorAll('.stat').forEach(el=>{
+ let t=+el.dataset.target,c=0;
+ let i=setInterval(()=>{c++;el.textContent=c;if(c>=t)clearInterval(i)},20);
+});
+const viewer = document.getElementById("imageViewer");
+const viewerImage = document.getElementById("viewerImage");
+
+document.querySelectorAll(".gallery-img").forEach(img=>{
+    img.onclick=()=>{
+        viewer.style.display="flex";
+        viewerImage.src=img.src;
+    }
+});
+
+document.getElementById("closeViewer").onclick=()=>{
+    viewer.style.display="none";
+};
+
+viewer.onclick=(e)=>{
+    if(e.target===viewer){
+        viewer.style.display="none";
+    }
+};
+</script>
+</body></html>
